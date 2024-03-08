@@ -1,0 +1,35 @@
+{
+    "manifest_version": 2,
+    "name": "WhatsApp to Todoist",
+    "version": "1.0",
+    "description": "Create Todoist tasks from WhatsApp",
+    "permissions": [
+        "activeTab",
+        "storage",
+        "https://api.todoist.com/*"
+    ],
+    "background": {
+        "scripts": [
+            "background.js"
+        ],
+        "persistent": false
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://web.whatsapp.com/*"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "browser_action": {
+        "default_icon": {
+            "16": "images/icon16.png",
+            "48": "images/icon48.png",
+            "128": "images/icon128.png"
+        },
+        "default_popup": "popup.html"
+    }
+}
